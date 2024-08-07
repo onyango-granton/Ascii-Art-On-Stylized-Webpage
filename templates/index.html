@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASCII Art Generator</title>
+</head>
+<body>
+    <h1>ASCII Art Generator</h1>
+    <form action="/ascii-art" method="post" enctype="multipart/form-data">
+        <label for="text">Text:</label>
+        <!-- <input type="text" id="text" name="text" required><br><br> -->
+        <textarea name="text" id="" cols="30" rows="10"></textarea><br>
+        <label for="artFile">Choose Art File:</label><br>
+        <label for="standard">Shadow</label>
+        <input type="radio" id="shadow" name="artFile" value="shadow"><br>
+        <label for="standard">Standard</label>
+        <input type="radio" id="standard" name="artFile" value="standard"><br>
+        <label for="standard">ThinkerToy</label>
+        <input type="radio" id="thinkertoy" name="artFile" value="thinkertoy"><br>
+        <input type="submit" value="Generate ASCII Art">
+    </form>
+</body>
+</html>
