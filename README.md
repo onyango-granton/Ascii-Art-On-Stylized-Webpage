@@ -1,9 +1,8 @@
-## Ascii Art Output
-The ASCII Art Output is a program written to generate ASCII art from a given string or its specified substring and writes the output to a file.
+## ASCII-ART-WEB
+The ASCII Art Web is a program written to generate ASCII art from a given string or its specified substring and writes the output to a webpage
 The format of the input received as arguments is:
 ```
-Usage: go run . [OPTION] [STRING] [BANNER]
-EX: go run . --output=<fileName.txt> something standard
+Usage: go run .
 ```
 ## NOTE
 1. This program builds on the ASCII Art from  **[ASCII-REPOSITORY](https://learn.zone01kisumu.ke/git/wyonyango/ascii-art.git)**
@@ -14,19 +13,19 @@ EX: go run . --output=<fileName.txt> something standard
 To use the ASCII Art Generator, follow these steps:
 1. Clone this repository to your local machine using the comand below.
 ``` bash
-git clone https://learn.zone01kisumu.ke/git/lakoth/ascii-art-output.git
+git clone https://learn.zone01kisumu.ke/git/gonyango/ascii-art-web.git
 ```
 
 2. Navigate to the directory where the repository is cloned.
 ```bash
-cd ascii-art-output
+cd ascii-art-web
 ```
 
 3. Initialize your module to get the required dependancies :Run the command below to initialize your module
 ```bash
-go mod init ascii-art-output
+go mod init ascii-art-web
 ```
-4. Run the program from the command line, providing a string as an argument and file to store art output
+4. Run the program from the command line then open the browser to see the webapp
 
 
 ## Example 1
