@@ -16,7 +16,8 @@ func PrintingAscii(text, patternFile, color, subString string) string {
 	for i := 0; i < len(text); {
 		if i+1 < len(text) && text[i] == '\\' && text[i+1] == 'a' {
 			fmt.Fprintf(os.Stderr, "error: Special character %v%v is not supported \n", string(text[i]), string(text[i+1]))
-			os.Exit(1)
+			// os.Exit(1)
+			return "1"
 		}
 		if i+1 < len(text) && text[i] == '\\' && text[i+1] == 'b' {
 			l := len(text) - 2
@@ -35,24 +36,31 @@ func PrintingAscii(text, patternFile, color, subString string) string {
 		}
 		if i+1 < len(text) && text[i] == '\\' && text[i+1] == 'v' {
 			fmt.Fprintf(os.Stderr, "error: Special character %v%v is not supported \n", string(text[i]), string(text[i+1]))
-			os.Exit(1)
+			// os.Exit(1)
+			return "1"
 		}
 		if i+1 < len(text) && text[i] == '\\' && text[i+1] == 'f' {
 			fmt.Fprintf(os.Stderr, "error: Special character %v%v is not supported \n", string(text[i]), string(text[i+1]))
-			os.Exit(1)
+			// os.Exit(1)
+			return "1"
 		}
 		if i+1 < len(text) && text[i] == '\\' && text[i+1] == 'r' {
 			fmt.Fprintf(os.Stderr, "error: Special character %v%v is not supported \n", string(text[i]), string(text[i+1]))
-			os.Exit(1)
+			// os.Exit(1)
+			return "1"
 		}
 		if i+1 < len(text) && text[i] > 127 {
 			fmt.Fprintln(os.Stderr, "error: Only ascii characters are allowed")
-			os.Exit(1)
+			// os.Exit(1)
+			return "1"
 		}
 		i++
 	}
 	lines := strings.Split(text, "\\n")
 	asciiMap := mapPackage.AsciiMapping(patternFile)
+	if len(asciiMap) == 0 {
+		return ""
+	}
 	alphaArray := utils.FindSubStringIndex(text, subString)
 	count := 0
 
