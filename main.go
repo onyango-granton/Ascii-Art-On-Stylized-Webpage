@@ -36,12 +36,14 @@ func (h *generateHandler) ServeHTTP(writer http.ResponseWriter, request *http.Re
 	switch banner {
 	case "standard":
 		ap = printingasciipackage.PrintingAscii(text, "standard.txt", "\033[0m", "")
+		ap = strings.ReplaceAll(ap, string(rune(13)),"") //windows machine
 		err := os.WriteFile("result.txt", []byte(ap), 0o600)
 		if err != nil {
 			fmt.Fprint(writer, err.Error())
 		}
 	case "shadow":
 		ap = printingasciipackage.PrintingAscii(text, "shadow.txt", "\033[0m", "")
+		ap = strings.ReplaceAll(ap, string(rune(13)),"") //windows machine
 		err := os.WriteFile("result.txt", []byte(ap), 0o600)
 		if err != nil {
 			fmt.Fprint(writer, err.Error())
@@ -102,6 +104,6 @@ func main() {
 	// })
 	// http.HandleFunc("/", indexHandler)
 	// http.HandleFunc("/ascii-art", generateHandler)
-	fmt.Println("Server Initiated")
+	fmt.Println("Server Initiated at http://127.0.0.1:8080")
 	server.ListenAndServe()
 }
