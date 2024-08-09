@@ -5,7 +5,7 @@
     <title>ASCII Art Generator</title>
 </head>
 <body>
-    <div class="body">
+    <div class="inputDiv">
         <h1>ASCII Art Generator</h1>
         <form  class="ascii_form" action="/ascii-art" method="post" enctype="multipart/form-data">
             <!-- <label for="text">Text:</label> -->
@@ -16,7 +16,7 @@
             <div class="banner">
                 <h4>Choose Art File:</h4>
                 <label for="standard">Standard</label>
-                <input type="radio" id="standard" name="artFile" value="standard"><br>
+                <input type="radio" id="standard" name="artFile" value="standard" checked><br>
                 <label for="shadow">Shadow</label>
                 <input type="radio" id="shadow" name="artFile" value="shadow"><br>
                 <label for="thinkertoy">ThinkerToy</label>
@@ -26,32 +26,71 @@
     
             <input class="submit" type="submit" value="Generate ASCII Art">
         </form>
+        
+    </div>
+    <div class="displayDiv">
 
+        <h2>Your ASCII Art:</h2>
+        <pre>{{.Art}}</pre>
+    
+        
+    </div>
+    <div>
+        <a class="refresh" href=".">Generate another one</a>
     </div>
 </body>
 <style>
 body{
-        display: flex;
-        justify-content: center;
-    }
-.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f37e5e;
+    /*background-color: #faa28f;*/
+}
+
+
+.inputDiv{
     display: flex;
     width:50%;
     flex-direction: column;
     align-items:center;
     border-radius:20px;
-    background-color:rgb(211, 207, 207);
+    /*background-color:rgb(211, 207, 207);*/
+    background-color: #faa28f;
+    margin: 1%;
+}
+.refresh{
+    background-color:#69c5f0;
+    border-radius: 10px;
+    padding: 5px;
+    text-decoration: none;
+}
+.displayDiv{
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    align-items:center;
+    border-radius:20px;
+    background-color:#bcdbfa;
+    margin-bottom: 1%;
 }
 textarea{
+    background-color: #bcdbfa;
+    padding: 5px;
     width:100%;
     border-radius:15px;
 }
 .submit{
-    padding:10px;
+    padding:5px;
+    border-width: 0px;
     width:40%;
-    background-color:rgb(72, 181, 224);
+    background-color:#69c5f0;
     border-radius:10px;
-    margin:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left: 30%;
+    margin-right: auto;
 }
 </style>
 </html>
