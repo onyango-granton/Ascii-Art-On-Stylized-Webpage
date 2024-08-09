@@ -67,7 +67,7 @@ func (h *generateHandler) ServeHTTP(writer http.ResponseWriter, request *http.Re
 
 	// res,_ := http.Get("http:localhost/result.txt")
 
-	tmpl := template.Must(template.ParseFiles("templates/ascii-art.html"))
+	tmpl := template.Must(template.ParseFiles("templates/index.html"))
 	tmpl.Execute(writer, struct{ Art string }{Art: ap})
 }
 
