@@ -74,14 +74,6 @@ Contributions to this project are welcome! If you'd like to contribute, please f
 <body>
 <div style="display: flex !important; justify-content: center !important;">
     <div style="margin: 10px;">
-        <img src="images/wkycliffe.png" style="border-radius: 50% !important; width: 150px !important; height: 150px; !important" alt="Wykliffe" >
-        <p style="text-align: center;">Wycliffe</p>
-    </div>
-    <div style="margin: 10px;">
-        <img src="images/lakoth.png" style="border-radius: 50% !important; width: 150px !important; height: 150px; !important" alt="Lorna" >
-        <p style="text-align: center;">Lorna</p>
-    </div>
-    <div style="margin: 10px;">
         <img src="images/gonyango.png" style="border-radius: 50% !important; width: 150px !important; height: 150px; !important" alt="Granton">
         <p style="text-align: center;">Granton</p>
     </div>
