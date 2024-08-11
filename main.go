@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"os"
 	"strings"
 	"text/template"
 
@@ -36,25 +35,13 @@ func (h *generateHandler) ServeHTTP(writer http.ResponseWriter, request *http.Re
 	switch banner {
 	case "standard":
 		ap = printingasciipackage.PrintingAscii(text, "standard.txt", "\033[0m", "")
-		ap = strings.ReplaceAll(ap, string(rune(13)),"") //windows machine
-		err := os.WriteFile("result.txt", []byte(ap), 0o600)
-		if err != nil {
-			fmt.Fprint(writer, err.Error())
-		}
+		ap = strings.ReplaceAll(ap, string(rune(13)), "") //windows machine
 	case "shadow":
 		ap = printingasciipackage.PrintingAscii(text, "shadow.txt", "\033[0m", "")
-		ap = strings.ReplaceAll(ap, string(rune(13)),"") //windows machine
-		err := os.WriteFile("result.txt", []byte(ap), 0o600)
-		if err != nil {
-			fmt.Fprint(writer, err.Error())
-		}
+		ap = strings.ReplaceAll(ap, string(rune(13)), "") //windows machine
 
 	case "thinkertoy":
 		ap = printingasciipackage.PrintingAscii(text, "thinkertoy.txt", "\033[0m", "")
-		err := os.WriteFile("result.txt", []byte(ap), 0o600)
-		if err != nil {
-			fmt.Fprint(writer, err.Error())
-		}
 	}
 	if ap == "" {
 		http.Error(writer, "500 Internal Server error", http.StatusInternalServerError)
@@ -63,10 +50,6 @@ func (h *generateHandler) ServeHTTP(writer http.ResponseWriter, request *http.Re
 		http.Error(writer, "400 Bad Request", http.StatusBadRequest)
 		return
 	}
-	// asciiArt := text + banner
-
-	// res,_ := http.Get("http:localhost/result.txt")
-
 	tmpl := template.Must(template.ParseFiles("templates/index.html"))
 	tmpl.Execute(writer, struct{ Art string }{Art: ap})
 }
@@ -93,17 +76,6 @@ func main() {
 	})
 	http.Handle("/ascii-art", generate)
 	http.Handle("/404", notfound)
-
-	// http.HandleFunc("/",func(w http.ResponseWriter, r *http.Request) {
-	// 	if r.URL.Path == "/"{
-	// 		index.ServeHTTP(w,r)
-	// 	}
-	// 	if r.URL.Path != "/" && r.URL.Path != "/ascii-art"{
-	// 		notfound.ServeHTTP(w, r)
-	// 	}
-	// })
-	// http.HandleFunc("/", indexHandler)
-	// http.HandleFunc("/ascii-art", generateHandler)
 	fmt.Println("Server Initiated at http://127.0.0.1:8080")
 	server.ListenAndServe()
 }
