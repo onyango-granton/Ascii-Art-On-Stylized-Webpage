@@ -74,6 +74,12 @@ Contributions to this project are welcome! If you'd like to contribute, please f
 <body>
 <div style="display: flex !important; justify-content: center !important;">
     <div style="margin: 10px;">
+        <img src="images/enungo.png" style="border-radius: 50% !important; width: 150px !important; height: 150px; !important" alt="Granton">
+        <p style="text-align: center;">Edwin</p>
+    </div>
+</div>
+<div style="display: flex !important; justify-content: center !important;">
+    <div style="margin: 10px;">
         <img src="images/gonyango.png" style="border-radius: 50% !important; width: 150px !important; height: 150px; !important" alt="Granton">
         <p style="text-align: center;">Granton</p>
     </div>
