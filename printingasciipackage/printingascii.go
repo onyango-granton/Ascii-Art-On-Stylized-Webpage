@@ -5,8 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"ascii-art-color/mapPackage"
-	"ascii-art-color/utils"
+	"ascii-web-art/mapPackage"
 )
 
 // PrintingAscii function reads input text,gets the pattern  and converts it to ascii art.
@@ -61,39 +60,13 @@ func PrintingAscii(text, patternFile, color, subString string) string {
 	if len(asciiMap) == 0 {
 		return ""
 	}
-	alphaArray := utils.FindSubStringIndex(text, subString)
-	count := 0
 
-	for wordIndex, word := range lines { // case of multiple newlines
-		if word == "" {
-			count++
-			if count < len(lines) {
-				res += "\n"
+	for _, word := range lines { // case of multiple newlines
+		for n := 0; n < 8; n++ {
+			for _, ch := range word {
+				res += asciiMap[ch][n] 
 			}
-		} else {
-			for n := 0; n < 8; n++ {
-				for runeIndex, ch := range word {
-					if wordIndex > 0 {
-						checkIndex := 0
-						for x := 0; x < wordIndex; x++ {
-							checkIndex += len(lines[x]) + 2
-						}
-						if utils.IndicesInArr(alphaArray, checkIndex+runeIndex) {
-
-							res += color + asciiMap[ch][n] + "\033[0m"
-							continue
-						}
-						res += asciiMap[ch][n]
-					} else {
-						if utils.IndicesInArr(alphaArray, runeIndex) {
-							res += color + asciiMap[ch][n] + "\033[0m"
-							continue
-						}
-						res += asciiMap[ch][n]
-					}
-				}
-				res += "\n"
-			}
+			res += "\n"
 		}
 	}
 
