@@ -6,7 +6,7 @@ import (
 	"strings"
 	"text/template"
 
-	"ascii-art-color/printingasciipackage"
+	"ascii-web-art/printingasciipackage"
 )
 
 type indexHandler struct{}
